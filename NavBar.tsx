@@ -1,17 +1,7 @@
 import React, { useContext } from 'react';
-import { Link, NavLink, useHistory } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
-import { doLogout } from '../../actions/actionUserLogin';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-  const history = useHistory();
-
-  const { userState, userDispatch } = useContext(UserContext);
-
-  const handleLogoutClick = () => {
-    userDispatch(doLogout());
-    history.replace('/login');
-  };
 
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -37,12 +27,8 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <span className="navbar-text text-info">{userState.name}</span>
-      <button
-        onClick={handleLogoutClick}
-        type="button"
-        className="btn text-secondary"
-      >
+      <span className="navbar-text text-info"> UserName </span>
+      <button>
         Logout
       </button>
     </nav>
